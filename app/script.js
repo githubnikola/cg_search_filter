@@ -1,14 +1,24 @@
+'use strict'
+// require('../node_modules/angular/angular.js');
+// require('../node_modules/angular-animate/angular-animate.js');
+// require('../node_modules/angular-aria/angular-aria.js');
+// require('../node_modules/angular-material/angular-material.js');
+// require('../node_modules/angular-messages/angular-messages.js');
+// require('../node_modules/angular-sanitize/angular-sanitize.js');
+require('./directives/QueryBuilderDirective.js');
+
+// const qs = require('qs');
+//console.log(qs);
+
 angular
   .module('MyApp',['ngMaterial', 'ngSanitize', 'queryBuilder'])
   .controller('AppCtrl', function($scope) {
     var ctrl = this;
-  
     ctrl.field = "name";
     ctrl.comparator = "e";
   })
   .controller('QueryItemController', QueryItemController)
   .controller('QueryBuilderCtrl', QueryBuilderCtrl);
-
 
 function QueryItemController($scope) {
   var ctrl = this;
@@ -20,7 +30,6 @@ function QueryItemController($scope) {
   ctrl.value = null;
   
   ctrl.comparators = [];
-  
 };
 
 QueryItemController.prototype.getQueryPart = function() {
@@ -57,10 +66,13 @@ function QueryBuilderCtrl($scope) {
     $scope.filter = JSON.parse(data);
 
     $scope.$watch('filter', function (newValue) {
-        //console.log(newValue);
+        console.log(newValue);
+        // 
         $scope.json = JSON.stringify(newValue, null, 2);
-        //console.log(newValue.group);
+        console.log($scope.json);
         $scope.output = computed(newValue.group);
+
+        // $scope.output = iskoristi qs ovde
     }, true);
 };
 
@@ -68,7 +80,19 @@ QueryBuilderCtrl.$inject = ['$scope'];
 
 // ------------
   
+// const qs = require('qs');
+
+// var q = {
+//   "filter" : {
+//     "fields.fname" : {
+//       "e" : "velja"
+//     },
+//     "fields.lname" : {
+//       "e" : "selja"
+//     }
+//   }
+// };
 
 
-
-
+// const qstring = qs.stringify(q, { encode: false });
+// console.log(qstring);

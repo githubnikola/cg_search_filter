@@ -4,7 +4,9 @@
   "description": "search filter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel": "babel --presets es2015 app/script.js -o build/script.bundle.js",
+    "start": "http-server",
+    "webpack": "webpack"
   },
   "keywords": [
     "filter",
@@ -23,6 +25,14 @@
     "angular-material": "^1.1.7",
     "angular-messages": "1.4.*",
     "angular-sanitize": "1.4.*",
-    "qs": "^6.5.1"
+    "qs": "^6.5.1",
+    "babel-loader": "^7.1.4",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
   }
 }
