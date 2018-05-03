@@ -57,7 +57,9 @@ function QueryBuilderCtrl($scope) {
     $scope.filter = JSON.parse(data);
 
     $scope.$watch('filter', function (newValue) {
+        //console.log(newValue);
         $scope.json = JSON.stringify(newValue, null, 2);
+        //console.log(newValue.group);
         $scope.output = computed(newValue.group);
     }, true);
 };
@@ -66,72 +68,7 @@ QueryBuilderCtrl.$inject = ['$scope'];
 
 // ------------
   
-angular
-  .module('queryBuilder', ['ngMaterial'])
-  .directive('queryBuilder', QueryBuilderDirective);
 
-function QueryBuilderDirective($compile) {
-  return {
-    restrict: 'E',
-    scope: {
-      group: '='
-    },
-    templateUrl: 'queryBuilderDirective.html',
-    compile: function (element, attrs) {
-    console.log(attrs);
-      var content, 
-          directive;
-      
-      content = element.contents().remove();
-      
-      return function (scope, element, attrs) {
-        scope.operators = [
-          { name: 'AND' },
-          { name: 'OR' }
-        ];
-
-        scope.fields = [
-          { name: 'Firstname' },
-          { name: 'Lastname' },
-          { name: 'Birthdate' },
-          { name: 'City' },
-          { name: 'Country' }
-        ];
-
-        scope.conditions = [
-          { name: '=' },
-          { name: '<>' },
-          { name: '<' },
-          { name: '<=' },
-          { name: '>' },
-          { name: '>=' },
-          { name: 'Begins with' },
-          { name: 'Contains'}
-        ];
-
-        scope.addCondition = function () {
-          scope.group.rules.push({
-            condition: '=',
-            field: 'Firstname',
-            data: ''
-          });
-        };
-
-        scope.removeCondition = function (index) {
-          scope.group.rules.splice(index, 1);
-        };
-
-        directive || (directive = $compile(content));
-
-        element.append(directive(scope, function ($compile) {
-          return $compile;
-        }));
-      }
-    }
-  }
-};
-
-QueryBuilderDirective.$inject = ['$compile'];
 
 
 
