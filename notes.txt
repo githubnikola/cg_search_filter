@@ -1,0 +1,7 @@
+https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js
+https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js
+https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js
+https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js
+https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js
+https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-sanitize.min.js
+https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0/angular-material.js
