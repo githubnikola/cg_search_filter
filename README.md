@@ -30,14 +30,14 @@ Alias (same as above)
 Using [qs](https://github.com/ljharb/qs) library and parsing
 ```javascript
 var q = {
-	"filter": {
-		"fields.firstname": {
-			"E": "Nikola"
-		},
-		"fields.lastname": {
-			"E": "Jovanovic"
-		}
-	}
+  "filter": {
+    "fields.firstname": {
+      "E": "Nikola"
+    },
+    "fields.lastname": {
+      "E": "Jovanovic"
+    }
+  }
 }
 
 var str = qs.stringify(q);
