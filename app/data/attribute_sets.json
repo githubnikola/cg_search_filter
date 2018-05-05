@@ -1,0 +1,585 @@
+[
+  {
+    "id": 1,
+    "code": "home",
+    "entity_type_id": 1,
+    "name": "Home",
+    "primary_attribute_id": 2,
+    "created_at": "2018-03-14T19:24:09+00:00",
+    "updated_at": "2018-05-03T09:50:38+00:00",
+    "attributes": [
+      {
+        "id": 2,
+        "code": "title",
+        "admin_label": "Title",
+        "admin_notice": "",
+        "field_type": "text",
+        "localized": 1,
+        "default_value": null,
+        "unique": 0,
+        "required": 0,
+        "filterable": 0,
+        "searchable": 0,
+        "search_boost": 1,
+        "status": "user_defined",
+        "data": {
+          "input_type": "text_input"
+        },
+        "created_at": "2018-03-14T19:20:38+00:00",
+        "updated_at": "2018-03-14T19:20:38+00:00",
+        "options": [],
+        "type": "attribute",
+        "links": {
+          "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/2"
+        }
+      },
+      {
+        "id": 5,
+        "code": "slides",
+        "admin_label": "Slides",
+        "admin_notice": "",
+        "field_type": "node_collection",
+        "localized": 0,
+        "default_value": null,
+        "unique": 0,
+        "required": 0,
+        "filterable": 0,
+        "searchable": 0,
+        "search_boost": 1,
+        "status": "user_defined",
+        "data": {
+          "allowed_types": [4]
+        },
+        "created_at": "2018-03-14T19:23:17+00:00",
+        "updated_at": "2018-03-14T19:23:17+00:00",
+        "options": [],
+        "type": "attribute",
+        "links": {
+          "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/5"
+        }
+      },
+      {
+        "id": 31,
+        "code": "components",
+        "admin_label": "Components",
+        "admin_notice": "",
+        "field_type": "node_collection",
+        "localized": 1,
+        "default_value": null,
+        "unique": 0,
+        "required": 0,
+        "filterable": 0,
+        "searchable": 0,
+        "search_boost": 1,
+        "status": "user_defined",
+        "data": {
+          "allowed_types": [9]
+        },
+        "created_at": "2018-05-02T17:08:58+00:00",
+        "updated_at": "2018-05-02T17:08:58+00:00",
+        "options": [],
+        "type": "attribute",
+        "links": {
+          "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/31"
+        }
+      },
+      {
+        "id": 11,
+        "code": "in_nav",
+        "admin_label": "In Navigation",
+        "admin_notice": "",
+        "field_type": "boolean",
+        "localized": 0,
+        "default_value": null,
+        "unique": 0,
+        "required": 0,
+        "filterable": 0,
+        "searchable": 0,
+        "search_boost": 1,
+        "status": "user_defined",
+        "data": {
+          "input_type": "boolean_radio"
+        },
+        "created_at": "2018-03-14T22:50:53+00:00",
+        "updated_at": "2018-03-14T22:50:53+00:00",
+        "options": [],
+        "type": "attribute",
+        "links": {
+          "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/11"
+        }
+      },
+      {
+        "id": 12,
+        "code": "order",
+        "admin_label": "Order",
+        "admin_notice": "",
+        "field_type": "text",
+        "localized": 0,
+        "default_value": null,
+        "unique": 0,
+        "required": 0,
+        "filterable": 0,
+        "searchable": 0,
+        "search_boost": 1,
+        "status": "user_defined",
+        "data": {
+          "input_type": "text_input"
+        },
+        "created_at": "2018-03-14T22:51:25+00:00",
+        "updated_at": "2018-03-14T22:51:25+00:00",
+        "options": [],
+        "type": "attribute",
+        "links": {
+          "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/12"
+        }
+      },
+      {
+        "id": 10,
+        "code": "page",
+        "admin_label": "Page",
+        "admin_notice": "",
+        "field_type": "node",
+        "localized": 0,
+        "default_value": null,
+        "unique": 0,
+        "required": 0,
+        "filterable": 0,
+        "searchable": 0,
+        "search_boost": 1,
+        "status": "user_defined",
+        "data": {
+          "allowed_types": [1, 2, 3, 5]
+        },
+        "created_at": "2018-03-14T21:01:49+00:00",
+        "updated_at": "2018-03-16T07:50:16+00:00",
+        "options": [],
+        "type": "attribute",
+        "links": {
+          "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/10"
+        }
+      },
+      {
+        "id": 3,
+        "code": "image",
+        "admin_label": "Image",
+        "admin_notice": "",
+        "field_type": "asset",
+        "localized": 0,
+        "default_value": null,
+        "unique": 0,
+        "required": 0,
+        "filterable": 0,
+        "searchable": 0,
+        "search_boost": 1,
+        "status": "user_defined",
+        "data": {
+          "allowed_types": false,
+          "allowed_sizes": false
+        },
+        "created_at": "2018-03-14T19:21:01+00:00",
+        "updated_at": "2018-03-14T19:21:01+00:00",
+        "options": [],
+        "type": "attribute",
+        "links": {
+          "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/3"
+        }
+      }
+    ],
+    "type": "attribute-set",
+    "entity_type": {
+      "id": 1,
+      "type": "entity-type",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/entity-types\/1"
+      }
+    },
+    "links": {
+      "self": "https:\/\/sdapi.devplayground.space\/api\/attribute-sets\/1"
+    }
+  },
+  {
+    "id": 5,
+    "code": "contact",
+    "entity_type_id": 1,
+    "name": "Contact",
+    "primary_attribute_id": 2,
+    "created_at": "2018-03-16T06:07:40+00:00",
+    "updated_at": "2018-03-16T06:10:31+00:00",
+    "attributes": [{
+      "id": 2,
+      "code": "title",
+      "admin_label": "Title",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 1,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-03-14T19:20:38+00:00",
+      "updated_at": "2018-03-14T19:20:38+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/2"
+      }
+    },
+    {
+      "id": 11,
+      "code": "in_nav",
+      "admin_label": "In Navigation",
+      "admin_notice": "",
+      "field_type": "boolean",
+      "localized": 0,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "boolean_radio"
+      },
+      "created_at": "2018-03-14T22:50:53+00:00",
+      "updated_at": "2018-03-14T22:50:53+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/11"
+      }
+    },
+    {
+      "id": 12,
+      "code": "order",
+      "admin_label": "Order",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 0,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-03-14T22:51:25+00:00",
+      "updated_at": "2018-03-14T22:51:25+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/12"
+      }
+    }],
+    "type": "attribute-set",
+    "entity_type": {
+      "id": 1,
+      "type": "entity-type",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/entity-types\/1"
+      }
+    },
+    "links": {
+      "self": "https:\/\/sdapi.devplayground.space\/api\/attribute-sets\/5"
+    }
+  },
+  {
+    "id": 7,
+    "code": "blog",
+    "entity_type_id": 1,
+    "name": "Blog",
+    "primary_attribute_id": 2,
+    "created_at": "2018-03-16T07:08:39+00:00",
+    "updated_at": "2018-03-16T07:08:39+00:00",
+    "attributes": [{
+      "id": 2,
+      "code": "title",
+      "admin_label": "Title",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 1,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-03-14T19:20:38+00:00",
+      "updated_at": "2018-03-14T19:20:38+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/2"
+      }
+    },
+    {
+      "id": 11,
+      "code": "in_nav",
+      "admin_label": "In Navigation",
+      "admin_notice": "",
+      "field_type": "boolean",
+      "localized": 0,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "boolean_radio"
+      },
+      "created_at": "2018-03-14T22:50:53+00:00",
+      "updated_at": "2018-03-14T22:50:53+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/11"
+      }
+    },
+    {
+      "id": 12,
+      "code": "order",
+      "admin_label": "Order",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 0,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-03-14T22:51:25+00:00",
+      "updated_at": "2018-03-14T22:51:25+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/12"
+      }
+    }],
+    "type": "attribute-set",
+    "entity_type": {
+      "id": 1,
+      "type": "entity-type",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/entity-types\/1"
+      }
+    },
+    "links": {
+      "self": "https:\/\/sdapi.devplayground.space\/api\/attribute-sets\/7"
+    }
+  },
+  {
+    "id": 11,
+    "code": "dafault_page",
+    "entity_type_id": 1,
+    "name": "Default Page",
+    "primary_attribute_id": 2,
+    "created_at": "2018-05-01T23:44:06+00:00",
+    "updated_at": "2018-05-02T17:09:43+00:00",
+    "attributes": [{
+      "id": 2,
+      "code": "title",
+      "admin_label": "Title",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 1,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-03-14T19:20:38+00:00",
+      "updated_at": "2018-03-14T19:20:38+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/2"
+      }
+    },
+    {
+      "id": 25,
+      "code": "content",
+      "admin_label": "Content",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 1,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "html_editor"
+      },
+      "created_at": "2018-05-01T23:45:05+00:00",
+      "updated_at": "2018-05-01T23:45:05+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/25"
+      }
+    },
+    {
+      "id": 31,
+      "code": "components",
+      "admin_label": "Components",
+      "admin_notice": "",
+      "field_type": "node_collection",
+      "localized": 1,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "allowed_types": [9]
+      },
+      "created_at": "2018-05-02T17:08:58+00:00",
+      "updated_at": "2018-05-02T17:08:58+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/31"
+      }
+    },
+    {
+      "id": 11,
+      "code": "in_nav",
+      "admin_label": "In Navigation",
+      "admin_notice": "",
+      "field_type": "boolean",
+      "localized": 0,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "boolean_radio"
+      },
+      "created_at": "2018-03-14T22:50:53+00:00",
+      "updated_at": "2018-03-14T22:50:53+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/11"
+      }
+    },
+    {
+      "id": 12,
+      "code": "order",
+      "admin_label": "Order",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 0,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-03-14T22:51:25+00:00",
+      "updated_at": "2018-03-14T22:51:25+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/12"
+      }
+    },
+    {
+      "id": 26,
+      "code": "meta_title",
+      "admin_label": "Meta title",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 1,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-05-01T23:47:33+00:00",
+      "updated_at": "2018-05-01T23:47:33+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/26"
+      }
+    },
+    {
+      "id": 27,
+      "code": "meta_description",
+      "admin_label": "Meta description",
+      "admin_notice": "",
+      "field_type": "text",
+      "localized": 1,
+      "default_value": null,
+      "unique": 0,
+      "required": 0,
+      "filterable": 0,
+      "searchable": 0,
+      "search_boost": 1,
+      "status": "user_defined",
+      "data": {
+        "input_type": "text_input"
+      },
+      "created_at": "2018-05-01T23:47:46+00:00",
+      "updated_at": "2018-05-01T23:47:46+00:00",
+      "options": [],
+      "type": "attribute",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/attributes\/27"
+      }
+    }],
+    "type": "attribute-set",
+    "entity_type": {
+      "id": 1,
+      "type": "entity-type",
+      "links": {
+        "self": "https:\/\/sdapi.devplayground.space\/api\/entity-types\/1"
+      }
+    },
+    "links": {
+      "self": "https:\/\/sdapi.devplayground.space\/api\/attribute-sets\/11"
+    }
+  },
+]
