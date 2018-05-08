@@ -2,25 +2,26 @@
  var webpack = require('webpack');
 
  module.exports = {
-     mode: 'development', 
-     entry: './app/script.js',
-     output: {
-         path: path.resolve(__dirname, 'build'),
-         filename: 'script.bundle.js'
+    mode: 'development', 
+    entry: './app/QueryBuilder.js',
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: 'QueryBuilder.bundle.js'
      },
-     module: {
+    module: {
          rules: [
-             {
-                 test: /\.js$/,
-                 loader: 'babel-loader',
-                 query: {
-                     presets: ['es2015']
-                 }
-             }
-         ]
-     },
-     stats: {
-         colors: true
-     },
-     devtool: 'source-map'
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
+            }
+        ]
+    },
+    watch: true,
+    stats: {
+        colors: true
+    },
+    devtool: 'source-map'
  };
