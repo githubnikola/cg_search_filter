@@ -1,0 +1,274 @@
+[{
+"id": 18,
+"code": "product_default",
+"entity_type_id": 10,
+"name": "default",
+"primary_attribute_id": 40,
+"created_at": "2018-05-07T17:32:32+00:00",
+"updated_at": "2018-05-07T17:32:32+00:00",
+"attributes": [{
+    "id": 40,
+    "code": "product_name",
+    "admin_label": "Product name",
+    "admin_notice": "",
+    "field_type": "text",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": {
+        "input_type": "text_input"
+  },
+    "created_at": "2018-05-07T17:24:10+00:00",
+    "updated_at": "2018-05-07T17:24:10+00:00",
+    "options": [],
+    "type": "attribute",
+    "links": {
+        "self": "https://sdapi.devplayground.space/api/attributes/40"
+}
+}, {
+    "id": 41,
+    "code": "product_tags",
+    "admin_label": "Product tags",
+    "admin_notice": "",
+    "field_type": "tags",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": [],
+    "created_at": "2018-05-07T17:25:08+00:00",
+    "updated_at": "2018-05-07T17:25:08+00:00",
+    "options": [],
+    "type": "attribute",
+    "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/41"
+  }
+}, {
+    "id": 42,
+    "code": "product_sku",
+    "admin_label": "Product SKU",
+    "admin_notice": "",
+    "field_type": "integer",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": [],
+    "created_at": "2018-05-07T17:25:38+00:00",
+    "updated_at": "2018-05-07T17:25:38+00:00",
+    "options": [],
+    "type": "attribute",
+    "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/42"
+  }
+}, {
+    "id": 43,
+    "code": "product_price",
+    "admin_label": "Product price",
+    "admin_notice": "",
+    "field_type": "decimal",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": [],
+    "created_at": "2018-05-07T17:26:04+00:00",
+    "updated_at": "2018-05-07T17:26:04+00:00",
+    "options": [],
+    "type": "attribute",
+    "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/43"
+  }
+}, {
+    "id": 44,
+    "code": "product_sale_start",
+    "admin_label": "Product sale start",
+    "admin_notice": "",
+    "field_type": "datetime",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": [],
+    "created_at": "2018-05-07T17:26:44+00:00",
+    "updated_at": "2018-05-07T17:26:44+00:00",
+    "options": [],
+    "type": "attribute",
+    "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/44"
+  }
+}, {
+    "id": 45,
+    "code": "product_sale_end",
+    "admin_label": "Product sale end",
+    "admin_notice": "",
+    "field_type": "datetime",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": [],
+    "created_at": "2018-05-07T17:27:06+00:00",
+    "updated_at": "2018-05-07T17:27:06+00:00",
+    "options": [],
+    "type": "attribute",
+    "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/45"
+  }
+}, {
+    "id": 46,
+    "code": "product_featured",
+    "admin_label": "Product featured",
+    "admin_notice": "",
+    "field_type": "boolean",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": {
+      "input_type": "boolean_radio"
+  },
+  "created_at": "2018-05-07T17:27:40+00:00",
+  "updated_at": "2018-05-07T17:27:40+00:00",
+  "options": [],
+  "type": "attribute",
+  "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/46"
+  }
+}, {
+    "id": 47,
+    "code": "product_color",
+    "admin_label": "Product color",
+    "admin_notice": "",
+    "field_type": "select",
+    "localized": 0,
+    "default_value": "white",
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": {
+      "input_type": "radio_input"
+  },
+  "created_at": "2018-05-07T17:29:10+00:00",
+  "updated_at": "2018-05-07T17:29:10+00:00",
+  "options": [{
+      "id": 3,
+      "attribute_id": 47,
+      "locale": 0,
+      "label": "White",
+      "value": "white",
+      "default": 1,
+      "sort_order": 0
+  }, {
+      "id": 4,
+      "attribute_id": 47,
+      "locale": 0,
+      "label": "Black",
+      "value": "black",
+      "default": 0,
+      "sort_order": 1
+  }, {
+      "id": 5,
+      "attribute_id": 47,
+      "locale": 0,
+      "label": "Yellow",
+      "value": "yellow",
+      "default": 0,
+      "sort_order": 2
+  }],
+  "type": "attribute",
+  "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/47"
+  }
+}, {
+    "id": 48,
+    "code": "product_available_in",
+    "admin_label": "Product available in",
+    "admin_notice": "",
+    "field_type": "multiselect",
+    "localized": 0,
+    "default_value": null,
+    "unique": 0,
+    "required": 0,
+    "filterable": 0,
+    "searchable": 0,
+    "search_boost": 1,
+    "status": "user_defined",
+    "data": [],
+    "created_at": "2018-05-07T17:31:55+00:00",
+    "updated_at": "2018-05-07T17:31:55+00:00",
+    "options": [{
+      "id": 6,
+      "attribute_id": 48,
+      "locale": 0,
+      "label": "Usce TC",
+      "value": "usce",
+      "default": 0,
+      "sort_order": 0
+  }, {
+      "id": 7,
+      "attribute_id": 48,
+      "locale": 0,
+      "label": "Delta City TC",
+      "value": "delta",
+      "default": 0,
+      "sort_order": 1
+  }, {
+      "id": 8,
+      "attribute_id": 48,
+      "locale": 0,
+      "label": "BIG TC",
+      "value": "big",
+      "default": 0,
+      "sort_order": 2
+  }],
+    "type": "attribute",
+    "links": {
+      "self": "https://sdapi.devplayground.space/api/attributes/48"
+  }
+}],
+"type": "attribute-set",
+"entity_type": {
+    "id": 10,
+    "type": "entity-type",
+    "links": {
+      "self": "https://sdapi.devplayground.space/api/entity-types/10"
+  }
+},
+"links": {
+    "self": "https://sdapi.devplayground.space/api/attribute-sets/18"
+}
+}
+]

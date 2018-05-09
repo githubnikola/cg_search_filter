@@ -52,17 +52,24 @@
                 </md-input-container>
 <!-- What are you looking for. This field should be dynamic 
         and change based on what type of data you want to search -->
-                <md-input-container >
+                <md-input-container ng-if="rules[$index].inputType=='text'">
                     <label>Value</label>
-                    <span ng-if="rules[$index].inputType=='text'">
-                        <input ng-model="rules.value" type="text">
-                    </span>
-                    <span ng-if="rules[$index].inputType=='number'">
-                        <input ng-model="rules.value" type="number">
-                    </span>
-                    <span ng-if="rules[$index].inputType=='date'">
-                        <input ng-model="rules.value" type="date">
-                    </span>
+                    <input                     
+                    ng-model="rules.value" 
+                    type="text">
+                </md-input-container>
+                <md-input-container ng-if="rules[$index].inputType=='number'">
+                    <label>Value</label>
+                    <input 
+                    ng-model="rules.value" 
+                    type="number">
+                </md-input-container>
+
+                <md-input-container  ng-if="rules[$index].inputType=='date'">
+                    <label>Value</label>
+                    <input 
+                    ng-model="rules.value" 
+                    type="date">
                 </md-input-container>
 
             </div>

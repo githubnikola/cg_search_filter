@@ -105,10 +105,12 @@ function ConditionBuilderDirective(){
                 return temp;
             }
 
-            scope.setFieldTypeInputType = function(index, field){
-                var fieldType = scope.adminLabelFieldTypeMap[field];
-                scope.rules[index].fieldType = fieldType;
-                console.log(fieldType + " " + index);
+            scope.setFieldTypeInputType = function(index, admin_label){
+                console.log(admin_label)
+                var fieldType = scope.adminLabelFieldTypeMap[admin_label];
+                scope.rules[index].inputType = FieldTypeInputMap[fieldType];
+                // console.log(fieldType + " " + index);
+                // console.log(scope.rules[index].inputType)
             }
             // var ats = getConditionsForFieldType('Content');
             // console.log(ats);

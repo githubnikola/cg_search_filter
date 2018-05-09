@@ -1,7 +1,7 @@
 'use strict'
 // require('./directives/QueryBuilderDirective.js');
 require('./directives/ConditionBuilderDirective.js');
-var attrSet             = require('./data/attribute_set.json');
+var attrSet             = require('./data/attribute_set_products.json');
 const qs                = require('qs');
 var attributes          = [];
 var attributesControl   = [];
@@ -24,6 +24,7 @@ for (var i = 0; i < attrSet.length; i++){
         }
     }
 }
+console.log(attributes)
 // RESET temporary variables
 attrSet             = {};
 attributesControl   = [];
@@ -64,7 +65,7 @@ function QueryBuilderCtrl($scope) {
         $scope.json     = JSON.stringify(newValue, null, 2);
         $scope.output   = computed(newValue.group);
     }, true);
-    
+
 };
 
 QueryBuilderCtrl.$inject = ['$scope'];
