@@ -105,23 +105,24 @@ function ConditionBuilderDirective(){
                 return temp;
             }
 
-            scope.setFieldTypeInputType = function(index, admin_label){
+            scope.setInputTypeForFieldType = function(index, admin_label){
+                // When Field select changes it call this function to set 
+                // input type of the input field
+                // @TODO See if this function can be combined with getConditionsForFieldType()
                 console.log(admin_label)
                 var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 scope.rules[index].inputType = FieldTypeInputMap[fieldType];
-                // console.log(fieldType + " " + index);
-                // console.log(scope.rules[index].inputType)
             }
-            // var ats = getConditionsForFieldType('Content');
-            // console.log(ats);
 
             scope.addCondition = function(){
+                // ng-repeat of .group-condition is tied to scope.rules[]
                 scope.rules.push({
                     field: scope.attributes[0]['admin_label'],
                     condition: "",
                     value: "",
                     inputType: "text"
                 });
+                console.log(scope.rules);
             }
 
             scope.removeCondition = function (index) {

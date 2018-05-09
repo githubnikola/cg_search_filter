@@ -28,7 +28,7 @@
                     <md-select 
                     ng-model="rules[$index].field" 
                     placeholder="Choose property"
-                    ng-change="setFieldTypeInputType(rules.indexOf(rules[$index]), rules[$index].field)">
+                    ng-change="setInputTypeForFieldType(rules.indexOf(rules[$index]), rules[$index].field)">
                         <md-option 
                         ng-repeat="a in attributes" 
                         ng-value="a['admin_label']">
@@ -55,20 +55,20 @@
                 <md-input-container ng-if="rules[$index].inputType=='text'">
                     <label>Value</label>
                     <input                     
-                    ng-model="rules.value" 
+                    ng-model="rules[$index].value" 
                     type="text">
                 </md-input-container>
                 <md-input-container ng-if="rules[$index].inputType=='number'">
                     <label>Value</label>
                     <input 
-                    ng-model="rules.value" 
+                    ng-model="rules[$index].value" 
                     type="number">
                 </md-input-container>
 
                 <md-input-container  ng-if="rules[$index].inputType=='date'">
                     <label>Value</label>
                     <input 
-                    ng-model="rules.value" 
+                    ng-model="rules[$index].value" 
                     type="date">
                 </md-input-container>
 
