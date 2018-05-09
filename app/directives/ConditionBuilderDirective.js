@@ -23,6 +23,7 @@ function ConditionBuilderDirective(){
                 var field = scope.attributes[i]['admin_label'];
                 scope.adminLabelFieldTypeMap[scope.attributes[i]['admin_label']] = scope.attributes[i]['field_type'];
                 scope.fields.push(field);
+                field = ""; // Reset variable
             }
 
             // all possible condition
@@ -77,10 +78,21 @@ function ConditionBuilderDirective(){
                 "multiselect": ['e', 'ne', 'in', 'nin', 'lt', 'lte', 'gt', 'gte', 'm']
             }
 
+            const FieldTypeInputMap = {
+                "text": "text",
+                "tags": "text",
+                "integer": "number",
+                "decimal": "number",
+                "datetime": "date",
+                "boolean": "text",
+                "select": "text",
+                "multiselect": "text"            
+            }
+
             scope.getConditionsForFieldType = function(admin_label){
                 // accept admin_label tied to Field ng-model
                 // Get filed type from the map
-                var fieldType = scope.adminLabelFieldTypeMap[admin_label]
+                var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 // get the value property of the field type from FieldTypeConditionMap
                 var fieldTypeAttributes = FieldTypeConditionMap[fieldType];
                 // temp variable gets returned
@@ -93,6 +105,11 @@ function ConditionBuilderDirective(){
                 return temp;
             }
 
+            scope.setFieldTypeInputType = function(index, field){
+                var fieldType = scope.adminLabelFieldTypeMap[field];
+                scope.rules[index].fieldType = fieldType;
+                console.log(fieldType + " " + index);
+            }
             // var ats = getConditionsForFieldType('Content');
             // console.log(ats);
 
@@ -100,7 +117,8 @@ function ConditionBuilderDirective(){
                 scope.rules.push({
                     field: scope.attributes[0]['admin_label'],
                     condition: "",
-                    value: ""
+                    value: "",
+                    inputType: "text"
                 });
             }
 
@@ -108,17 +126,11 @@ function ConditionBuilderDirective(){
                 scope.rules.splice(index, 1);
             };
 
-            scope.myChange = function(data){
-                console.log(data);
-                console.log("change");
-            }
-
-            scope.$watch('rules.field', function (newValue) {
+            scope.$watch('rules', function (newValue) {
                 // find "code" in attributes by newValue (['admin_label'])
                 // return set of condition for chosen field name
                 scope.query = newValue;
             }, true);
-
 
         } // END OF link:
     } // END OF return

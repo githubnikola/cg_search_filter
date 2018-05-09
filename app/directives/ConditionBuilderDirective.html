@@ -25,8 +25,13 @@
 <!-- Input for fields (columns) in which data is searched -->
                 <md-input-container flex="20">
                     <label>Field</label>
-                    <md-select ng-model="rules[rules.indexOf(rule)].field" placeholder="Choose property">
-                        <md-option ng-repeat="a in attributes" ng-value="a['admin_label']">
+                    <md-select 
+                    ng-model="rules[$index].field" 
+                    placeholder="Choose property"
+                    ng-change="setFieldTypeInputType(rules.indexOf(rules[$index]), rules[$index].field)">
+                        <md-option 
+                        ng-repeat="a in attributes" 
+                        ng-value="a['admin_label']">
                             {{a['admin_label']}}
                         </md-option>
                     </md-select>
@@ -35,17 +40,29 @@
 <!-- Select condition type as SQL condition -->
                 <md-input-container flex="10">
                     <label>Condition</label>
-                    <md-select ng-model="rules[rules.indexOf(rule)].condition" placeholder="Choose property">
-                        <md-option ng-repeat="c in getConditionsForFieldType(rules[rules.indexOf(rule)].field)" ng-value="c.label">
+                    <md-select 
+                    ng-model="rules[$index].condition" 
+                    placeholder="Choose property">
+                        <md-option 
+                        ng-repeat="c in getConditionsForFieldType(rules[$index].field)" 
+                        ng-value="c.label">
                             {{c.label}}
                         </md-option>
                     </md-select>
                 </md-input-container>
 <!-- What are you looking for. This field should be dynamic 
         and change based on what type of data you want to search -->
-                <md-input-container>
+                <md-input-container >
                     <label>Value</label>
-                    <input ng-model="rules.value">
+                    <span ng-if="rules[$index].inputType=='text'">
+                        <input ng-model="rules.value" type="text">
+                    </span>
+                    <span ng-if="rules[$index].inputType=='number'">
+                        <input ng-model="rules.value" type="number">
+                    </span>
+                    <span ng-if="rules[$index].inputType=='date'">
+                        <input ng-model="rules.value" type="date">
+                    </span>
                 </md-input-container>
 
             </div>
