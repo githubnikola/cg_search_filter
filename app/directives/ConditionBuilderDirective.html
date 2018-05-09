@@ -1,7 +1,7 @@
 <div flex>
     <div>
         <h1>CONDITION BUILDER DIRECTIVE</h1>
-        <h3>{{query}}</h3>
+       
     </div>
     <div flex layout="row" layout-align="start center">
         <md-button 
@@ -53,20 +53,20 @@
 <!-- What are you looking for. This field should be dynamic 
         and change based on what type of data you want to search -->
                 <md-input-container ng-if="rules[$index].inputType=='text'">
-                    <label>Value</label>
+                    <label>Text value</label>
                     <input                     
                     ng-model="rules[$index].value" 
                     type="text">
                 </md-input-container>
                 <md-input-container ng-if="rules[$index].inputType=='number'">
-                    <label>Value</label>
+                    <label>Number value</label>
                     <input 
                     ng-model="rules[$index].value" 
                     type="number">
                 </md-input-container>
 
                 <md-input-container  ng-if="rules[$index].inputType=='date'">
-                    <label>Value</label>
+                    <label>Select date</label>
                     <input 
                     ng-model="rules[$index].value" 
                     type="date">
@@ -75,4 +75,5 @@
             </div>
         </div>
     </div>
+     <h4>{{query}}</h4>
 </div>

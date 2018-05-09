@@ -109,9 +109,15 @@ function ConditionBuilderDirective(){
                 // When Field select changes it call this function to set 
                 // input type of the input field
                 // @TODO See if this function can be combined with getConditionsForFieldType()
-                console.log(admin_label)
+                console.log(admin_label);
                 var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 scope.rules[index].inputType = FieldTypeInputMap[fieldType];
+            }
+
+            function getInitialInputType(admin_label){
+                // Sets initial inputType when new condition is added
+                var fieldType = scope.adminLabelFieldTypeMap[admin_label];
+                return FieldTypeInputMap[fieldType];
             }
 
             scope.addCondition = function(){
@@ -120,7 +126,7 @@ function ConditionBuilderDirective(){
                     field: scope.attributes[0]['admin_label'],
                     condition: "",
                     value: "",
-                    inputType: "text"
+                    inputType: getInitialInputType(scope.attributes[0]['admin_label'])
                 });
                 console.log(scope.rules);
             }
