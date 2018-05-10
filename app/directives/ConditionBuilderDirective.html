@@ -58,6 +58,7 @@
                     ng-model="rules[$index].value" 
                     type="text">
                 </md-input-container>
+
                 <md-input-container ng-if="rules[$index].inputType=='number'">
                     <label>Number value</label>
                     <input 
@@ -75,5 +76,7 @@
             </div>
         </div>
     </div>
-     <h4>{{query}}</h4>
+
+     <h4>{{qry}}</h4>
+
 </div>

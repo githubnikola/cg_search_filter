@@ -7,8 +7,9 @@ var attributes          = [];
 var attributesControl   = [];
 
 console.log(attrSet);
-// Select attribute set that you want to include from API
+// Select attribute set that you want to exclude from API
 var excludedFieldTypes = ['asset', 'relation', 'node', 'node_collection'];
+// Picks unique attributes from attribute sets and passes them to ConditionBuilder
 for (var i = 0; i < attrSet.length; i++){
     var temp = {};
     for (var k = 0; k < attrSet[i].attributes.length; k++){
@@ -41,6 +42,9 @@ function QueryBuilderCtrl($scope) {
 
     $scope.attributes   = attributes;
     $scope.query        = query;
+    $scope.json     = null;
+    // simulira procesuiranje podataka dobijenih apijem
+    $scope.filter   = JSON.parse(data);
 
     function htmlEntities(str) {
         return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -57,15 +61,10 @@ function QueryBuilderCtrl($scope) {
         return str + ")";
     }
 
-    $scope.json     = null;
-    // simulira procesuiranje podataka dobijenih apijem
-    $scope.filter   = JSON.parse(data);
-    
     $scope.$watch('filter', function (newValue) {
         $scope.json     = JSON.stringify(newValue, null, 2);
         $scope.output   = computed(newValue.group);
     }, true);
-
 };
 
 QueryBuilderCtrl.$inject = ['$scope'];

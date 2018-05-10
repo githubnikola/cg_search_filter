@@ -21,7 +21,7 @@
 # $ git commit -m ".gitignore setup and cleaned up"
 
 
-# Ignore build, copies, node_modules
+# Ignore everything in the root except the "wp-content" directory.
 /node_modules
 /build
 package-lock.json
