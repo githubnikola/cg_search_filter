@@ -19,9 +19,11 @@ function ConditionBuilderDirective(){
 
             scope.fields                    = []; // No purspose at this moment
             scope.rules                     = []; // used to store conditions
+            scope.conditions                = {}; // Lists all conditions with labels and symbols
+            scope.adminLabelCodeMap         = {}; // Maps admin_label with attribute code
             scope.adminLabelFieldTypeMap    = {}; // Maping field type to the admin_label. 
                                                   // Admin_label is passed through ng-model of Condition section to getConditionsForFieldType()
-            scope.adminLabelCodeMap = {};
+            
             // Fill adminLabelFieldTypeMap and fields
             for (var i = 0; i < scope.attributes.length; i++ ){
                 var field = scope.attributes[i]['admin_label'];
@@ -31,7 +33,7 @@ function ConditionBuilderDirective(){
             }
 
             // all available condition
-            scope.conditions = {
+            scope.conditions            = {
                 "e": {
                     label: "Equal",
                     symbol: "="
@@ -70,8 +72,8 @@ function ConditionBuilderDirective(){
                 }
             }
 
-            // A map for query
-            const OperatorByCondition = {
+            // A map for query , maps API adjusted operator (value) by condition (key)
+            const OperatorByCondition   = {
                 "Equal": "e",
                 "Not equal": "ne",
                 "In": "in",
@@ -95,7 +97,8 @@ function ConditionBuilderDirective(){
                 "multiselect": ['e', 'ne', 'in', 'nin', 'lt', 'lte', 'gt', 'gte', 'm']
             }
 
-            const FieldTypeInputMap = {
+            // Maps attribute field_type with appropriate html input type
+            const FieldTypeInputMap     = {
                 "text": "text",
                 "tags": "text",
                 "integer": "number",
@@ -161,7 +164,8 @@ function ConditionBuilderDirective(){
                 });
             }
 
-            function htmlEntities(str) {
+            function htmlEntities(str){
+                // Prevents for malicious inputs
                 return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
             }
 
@@ -180,6 +184,7 @@ function ConditionBuilderDirective(){
             }
 
             scope.removeCondition = function (index) {
+                // Removes condition from array
                 scope.rules.splice(index, 1);
             };
 
