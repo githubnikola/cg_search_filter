@@ -109,6 +109,25 @@ function ConditionBuilderDirective(){
                 "multiselect": "text"            
             }
 
+            function htmlEntities(str){
+                // Prevents for malicious inputs
+                return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            function formatIfDate(value){
+                if(value instanceof Date){
+                    var day     = value.getDate(); 
+                    var month   = value.getMonth()+1;
+                    var year    = value.getFullYear();
+                    if(day <= 9){ day = "0" + day };
+                    if(month <= 9){ month = "0" + month }
+                    return day + "/" + month + "/" + year;
+                }
+                else {
+                    return htmlEntities(value)
+                }
+            }
+
             function getInitialCondition(admin_label){
                 var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 var fieldTypeAttributes = FieldTypeConditionMap[fieldType];
@@ -162,25 +181,6 @@ function ConditionBuilderDirective(){
                     value: "",
                     inputType: getInitialInputType(scope.attributes[0]['admin_label'])
                 });
-            }
-
-            function htmlEntities(str){
-                // Prevents for malicious inputs
-                return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            }
-
-            function formatIfDate(value){
-                if(value instanceof Date){
-                    var day     = value.getDate(); 
-                    var month   = value.getMonth()+1;
-                    var year    = value.getFullYear();
-                    if(day <= 9){ day = "0" + day };
-                    if(month <= 9){ month = "0" + month }
-                    return day + "/" + month + "/" + year;
-                }
-                else {
-                    return htmlEntities(value)
-                }
             }
 
             scope.removeCondition = function (index) {
