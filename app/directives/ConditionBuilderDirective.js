@@ -32,7 +32,7 @@ function ConditionBuilderDirective(){
                 scope.fields.push(field);
                 field = ""; // Reset variable
             };
-
+            // console.log(vm);
             // all available condition
             scope.conditions            = {
                 "e": {
@@ -72,7 +72,7 @@ function ConditionBuilderDirective(){
                     symbol: "%"
                 }
             };
-
+            
             // A map for query , maps API adjusted operator (value) by condition (key)
             const OperatorByCondition   = {
                 "Equal": "e",
@@ -115,6 +115,10 @@ function ConditionBuilderDirective(){
                 return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
             };
 
+            /* 
+             * If input value is date then format it to DD/MM/YYYY 
+             * if not return value parsed through htmlEntities()  
+            */
             function formatIfDate(value){
                 if(value instanceof Date){
                     var day     = value.getDate(); 
@@ -141,7 +145,12 @@ function ConditionBuilderDirective(){
                 return FieldTypeInputMap[fieldType];
             };
 
+            /*
+             * Creates API query in $watch
+            */
             function createAPIQuery(){
+                // @TODO Validate form (rules array) before creating a auery string
+                // validateRules(scope.rules);
                 scope.qry = "";
                 var q = "filter";
                 for(var i = 0; i < scope.rules.length; i++){
@@ -174,7 +183,7 @@ function ConditionBuilderDirective(){
                 var fieldTypeAttributes = FieldTypeConditionMap[fieldType];
                 // temp variable gets returned
                 var temp = {};
-                // Fille temp variable with conditions depanding on field_type
+                // Fill temp variable with conditions depanding on field_type
                 for (var i = 0; i < fieldTypeAttributes.length; i++){
                     // create an object to return
                     temp[fieldTypeAttributes[i]] = scope.conditions[fieldTypeAttributes[i]];
@@ -186,7 +195,6 @@ function ConditionBuilderDirective(){
                 // When Field select changes it call this function to set 
                 // input type of the input field
                 // @TODO See if this function can be combined with getConditionsForFieldType()
-                console.log(admin_label);
                 var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 scope.rules[index].inputType = FieldTypeInputMap[fieldType];
             };
@@ -214,5 +222,4 @@ function ConditionBuilderDirective(){
         } // END OF link:
     } // END OF return
 } // END OF ConditionBuilderDirective()
-
 

@@ -69,22 +69,3 @@ function QueryBuilderCtrl($scope) {
 };
 
 QueryBuilderCtrl.$inject = ['$scope'];
-
-// ------------
-  
-// const qs = require('qs');
-
-// var q = {
-//   "filter" : {
-//     "fields.fname" : {
-//       "e" : "velja"
-//     },
-//     "fields.lname" : {
-//       "e" : "selja"
-//     }
-//   }
-// };
-
-
-// const qstring = qs.stringify(q, { encode: false });
-// console.log(qstring);

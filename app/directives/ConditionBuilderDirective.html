@@ -56,7 +56,8 @@
                     <label>Text value</label>
                     <input                     
                     ng-model="rules[$index].value" 
-                    type="text">
+                    type="text"
+                    ng-if="rules[$index].condition != 'In' || rules[$index].condition != 'Not in'">                        
                 </md-input-container>
 
                 <md-input-container ng-if="rules[$index].inputType=='number'">
