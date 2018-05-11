@@ -31,7 +31,7 @@ function ConditionBuilderDirective(){
                 scope.adminLabelFieldTypeMap[scope.attributes[i]['admin_label']] = scope.attributes[i]['field_type'];
                 scope.fields.push(field);
                 field = ""; // Reset variable
-            }
+            };
 
             // all available condition
             scope.conditions            = {
@@ -71,7 +71,7 @@ function ConditionBuilderDirective(){
                     label: "Match",
                     symbol: "%"
                 }
-            }
+            };
 
             // A map for query , maps API adjusted operator (value) by condition (key)
             const OperatorByCondition   = {
@@ -84,7 +84,7 @@ function ConditionBuilderDirective(){
                 "Greater then": "gt",
                 "Greater then or equal to": "gte",
                 "Match": "m"
-            }
+            };
 
             // A map of field_type and conditions available to it
             const FieldTypeConditionMap = {
@@ -96,7 +96,7 @@ function ConditionBuilderDirective(){
                 "boolean": ['e', 'ne', 'in', 'nin', /*'lt', 'lte', 'gt', 'gte', 'm'*/],
                 "select": ['e', 'ne', 'in', 'nin', 'lt', 'lte', 'gt', 'gte', 'm'],
                 "multiselect": ['e', 'ne', 'in', 'nin', 'lt', 'lte', 'gt', 'gte', 'm']
-            }
+            };
 
             // Maps attribute field_type with appropriate html input type
             const FieldTypeInputMap     = {
@@ -108,12 +108,12 @@ function ConditionBuilderDirective(){
                 "boolean": "text",
                 "select": "text",
                 "multiselect": "text"            
-            }
+            };
 
             function htmlEntities(str){
                 // Prevents for malicious inputs
                 return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            }
+            };
 
             function formatIfDate(value){
                 if(value instanceof Date){
@@ -127,19 +127,36 @@ function ConditionBuilderDirective(){
                 else {
                     return htmlEntities(value)
                 }
-            }
+            };
 
             function getInitialCondition(admin_label){
                 var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 var fieldTypeAttributes = FieldTypeConditionMap[fieldType];
                 return scope.conditions[fieldTypeAttributes[0]].label;
-            }
+            };
 
             function getInitialInputType(admin_label){
                 // Sets initial inputType when new condition is added
                 var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 return FieldTypeInputMap[fieldType];
-            }
+            };
+
+            function createAPIQuery(){
+                scope.qry = "";
+                var q = "filter";
+                for(var i = 0; i < scope.rules.length; i++){
+                    var field = scope.adminLabelCodeMap[scope.rules[i].field];
+                    var condition = OperatorByCondition[scope.rules[i].condition];
+                    var value = formatIfDate(scope.rules[i].value);
+                    q += "[fields." + field + "][" + condition + "]=" + value;
+                    if(i < scope.rules.length - 1){
+                        q += "&";
+                    }
+                }
+                // Validate length, create query if condition exists
+                (q.length == 6) ? q = "" : q;
+                return scope.qry = q;
+            };
 
             (function createAdminLabelCodeMap(attributes){
                 for (var i = 0; i < attributes.length; i++){
@@ -163,7 +180,7 @@ function ConditionBuilderDirective(){
                     temp[fieldTypeAttributes[i]] = scope.conditions[fieldTypeAttributes[i]];
                 }
                 return temp;
-            }
+            };
 
             scope.setInputTypeForFieldType  = function(index, admin_label){
                 // When Field select changes it call this function to set 
@@ -172,7 +189,7 @@ function ConditionBuilderDirective(){
                 console.log(admin_label);
                 var fieldType = scope.adminLabelFieldTypeMap[admin_label];
                 scope.rules[index].inputType = FieldTypeInputMap[fieldType];
-            }
+            };
 
             scope.addCondition              = function(){
                 // ng-repeat of .group-condition is tied to scope.rules[]
@@ -182,7 +199,7 @@ function ConditionBuilderDirective(){
                     value: "",
                     inputType: getInitialInputType(scope.attributes[0]['admin_label'])
                 });
-            }
+            };
 
             scope.removeCondition           = function(index){
                 // Removes condition from array
@@ -190,22 +207,8 @@ function ConditionBuilderDirective(){
             };
 
             scope.$watch('rules', function (newValue) {
-                // watch for changes in rules array and create query
-                // @TODO if you add to conditions, only one will be added, must do it as a string
-                scope.qry = "";
-                var q = "filter";
-                for(var i = 0; i < scope.rules.length; i++){
-                    var field = scope.adminLabelCodeMap[scope.rules[i].field];
-                    var condition = OperatorByCondition[scope.rules[i].condition];
-                    var value = formatIfDate(scope.rules[i].value);
-                    q += "[fields." + field + "][" + condition + "]=" + value;
-                    if(i < scope.rules.length - 1){
-                        q += "&";
-                    }
-                }
-                // Validate length, create query if condition exists
-                (q.length == 6) ? q = "" : q;
-                return scope.qry = q;
+                // watch for changes in rules array and create query by calling createAPIQuery()
+                createAPIQuery();
             }, true);
 
         } // END OF link:
