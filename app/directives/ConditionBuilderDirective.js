@@ -1,6 +1,7 @@
 'use strict'
 var _       = require('underscore');
 const qs    = require('qs');
+
 angular
     .module('conditionBuilder', ['ngMaterial'])
     .directive('conditionBuilder', ConditionBuilderDirective);
@@ -164,7 +165,7 @@ function ConditionBuilderDirective(){
                 return temp;
             }
 
-            scope.setInputTypeForFieldType = function(index, admin_label){
+            scope.setInputTypeForFieldType  = function(index, admin_label){
                 // When Field select changes it call this function to set 
                 // input type of the input field
                 // @TODO See if this function can be combined with getConditionsForFieldType()
@@ -173,7 +174,7 @@ function ConditionBuilderDirective(){
                 scope.rules[index].inputType = FieldTypeInputMap[fieldType];
             }
 
-            scope.addCondition = function(){
+            scope.addCondition              = function(){
                 // ng-repeat of .group-condition is tied to scope.rules[]
                 scope.rules.push({
                     field: scope.attributes[0]['admin_label'],
@@ -183,7 +184,7 @@ function ConditionBuilderDirective(){
                 });
             }
 
-            scope.removeCondition = function (index) {
+            scope.removeCondition           = function(index){
                 // Removes condition from array
                 scope.rules.splice(index, 1);
             };
@@ -192,15 +193,18 @@ function ConditionBuilderDirective(){
                 // watch for changes in rules array and create query
                 // @TODO if you add to conditions, only one will be added, must do it as a string
                 scope.qry = "";
-                var q = "{'filter': ";
+                var q = "filter";
                 for(var i = 0; i < scope.rules.length; i++){
                     var field = scope.adminLabelCodeMap[scope.rules[i].field];
                     var condition = OperatorByCondition[scope.rules[i].condition];
                     var value = formatIfDate(scope.rules[i].value);
-                    q += "{'fields." + field + "': {'" + condition + "': '" + value + "'},"
+                    q += "[fields." + field + "][" + condition + "]=" + value;
+                    if(i < scope.rules.length - 1){
+                        q += "&";
+                    }
                 }
                 // Validate length, create query if condition exists
-                (q.length > 12) ? q += "}" : q = "";
+                (q.length == 6) ? q = "" : q;
                 return scope.qry = q;
             }, true);
 

@@ -3,32 +3,33 @@
 require('./directives/ConditionBuilderDirective.js');
 var attrSet             = require('./data/attribute_set_products.json');
 const qs                = require('qs');
-var attributes          = [];
-var attributesControl   = [];
+var attributes          = [];   // Stores final result of attributes. Passed to directive.
+var attributesControl   = [];   // Array used when parsing attribute set. Stores attribute ids and prevents from duplicates
 
-console.log(attrSet);
 // Select attribute set that you want to exclude from API
 var excludedFieldTypes = ['asset', 'relation', 'node', 'node_collection'];
-// Picks unique attributes from attribute sets and passes them to ConditionBuilder
-for (var i = 0; i < attrSet.length; i++){
-    var temp = {};
-    for (var k = 0; k < attrSet[i].attributes.length; k++){
-        if(!attributesControl.includes(attrSet[i].attributes[k].id) 
-                && !excludedFieldTypes.includes(attrSet[i].attributes[k]['field_type'])){
-            attributesControl.push(attrSet[i].attributes[k].id);
-            temp.id             = attrSet[i].attributes[k].id;
-            temp.code           = attrSet[i].attributes[k].code;
-            temp['admin_label'] = attrSet[i].attributes[k]['admin_label'];
-            temp['field_type']  = attrSet[i].attributes[k]['field_type'];
-            attributes.push(temp);
-            temp = {};
+
+(function extractAttributes(attrSet){
+    for (var i = 0; i < attrSet.length; i++){
+        var temp = {};
+        for (var k = 0; k < attrSet[i].attributes.length; k++){
+            if(!attributesControl.includes(attrSet[i].attributes[k].id) 
+                    && !excludedFieldTypes.includes(attrSet[i].attributes[k]['field_type'])){
+                attributesControl.push(attrSet[i].attributes[k].id);
+                temp.id             = attrSet[i].attributes[k].id;
+                temp.code           = attrSet[i].attributes[k].code;
+                temp['admin_label'] = attrSet[i].attributes[k]['admin_label'];
+                temp['field_type']  = attrSet[i].attributes[k]['field_type'];
+                attributes.push(temp);
+                temp = {};
+            }
         }
     }
-}
-console.log(attributes)
+})(attrSet);
+
 // RESET temporary variables
-attrSet             = {};
-attributesControl   = [];
+attrSet             = null;
+attributesControl   = null;
 
 // ================================================================
 angular
@@ -42,7 +43,7 @@ function QueryBuilderCtrl($scope) {
 
     $scope.attributes   = attributes;
     $scope.query        = query;
-    $scope.json     = null;
+    $scope.json         = null;
     // simulira procesuiranje podataka dobijenih apijem
     $scope.filter   = JSON.parse(data);
 
