@@ -27,16 +27,13 @@
     "angular-messages": "1.4.*",
     "angular-sanitize": "1.4.*",
     "babel-loader": "^7.1.4",
-    "css-loader": "^0.28.11",
+    "babel-preset-es2015": "^6.24.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "lodash": "^4.17.10",
     "node-sass": "^4.8.3",
-    "qs": "^6.5.1",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.20.3",
     "underscore": "^1.9.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.1.3",
     "webpack-watch-server": "^1.2.1"
-  }
+  },
+  "dependencies": {}
 }

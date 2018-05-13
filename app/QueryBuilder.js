@@ -2,7 +2,7 @@
 // require('./directives/QueryBuilderDirective.js');
 require('./directives/ConditionBuilderDirective.js');
 var attrSet             = require('./data/attribute_set_products.json');
-const qs                = require('qs');
+
 var attributes          = [];   // Stores final result of attributes. Passed to directive.
 var attributesControl   = [];   // Array used when parsing attribute set. Stores attribute ids and prevents from duplicates
 
