@@ -1,8 +1,8 @@
 
-let attrSet             = require('../data/attribute_set_products.json');
-let attributes          = [];   // Stores final result of attributes. Passed to directive.
-let adminLabelFieldTypeMap = {};
-
+let attrSet                 = require('../data/attribute_set_products.json');
+let attributes              = [];   // Stores final result of attributes. Passed to directive.
+let adminLabelFieldTypeMap  = {};
+let adminLabelCodeMap       = {}
 /*
 * Helper variables
 */
@@ -38,7 +38,15 @@ attributesControl   = null;
         // vm.fields.push(field);
         field = ""; // Reset variable
     };    
-})(attributes)
+})(attributes);
+
+(function createAdminLabelCodeMap(attributes){
+    for (let i = 0; i < attributes.length; i++){
+        let adminLabel = attributes[i]['admin_label'];
+        let code = attributes[i]['code'];
+        adminLabelCodeMap[adminLabel] = code;
+    }
+})(attributes);
 
 export default function queryBuilderService(queryBuilderConstants){
     let qbc = queryBuilderConstants;
@@ -48,6 +56,7 @@ export default function queryBuilderService(queryBuilderConstants){
         wtf:                        function(str){console.log(str)},
         attributes:                 attributes,
         adminLabelFieldTypeMap:     adminLabelFieldTypeMap,
+        adminLabelCodeMap:          adminLabelCodeMap,
         conditions:                 qbc.conditions,
         operatorByCondition:        qbc.operatorByCondition,
         fieldTypeConditionMap:      qbc.fieldTypeConditionMap,

@@ -49,7 +49,7 @@ function ConditionController($scope, queryBuilderService){
     vm.OperatorByCondition       = qbs.operatorByCondition;
     vm.conditions                = qbs.conditions; // Lists all conditions with labels and symbols
     vm.FieldTypeConditionMap     = qbs.fieldTypeConditionMap;
-    vm.adminLabelCodeMap         = {}; // Maps admin_label with attribute code used in createAPIQuery()
+    vm.adminLabelCodeMap         = qbs.adminLabelCodeMap; // Maps admin_label with attribute code used in createAPIQuery()
     vm.FieldTypeInputMap         = qbs.fieldTypeInputMap;
     vm.adminLabelFieldTypeMap    = qbs.adminLabelFieldTypeMap; // Maping field type to the admin_label.
                                           // Admin_label is passed through ng-model of Condition section to getConditionsForFieldType()
