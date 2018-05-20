@@ -1,8 +1,7 @@
 <div flex>
     <div>
         <h1>CONDITION BUILDER DIRECTIVE</h1>
-       <h4>{{query}}</h4>
-       <p>{{prezime}}</p>
+       <h4>{{vm.query}}</h4>
     </div>
     <div flex layout="row" layout-align="start center">
         <md-button 
@@ -44,7 +43,8 @@
                     <!-- on change check for the type if IN or NIN value change text input type to chips -->
                     <md-select 
                     ng-model="vm.rules[$index].condition" 
-                    placeholder="Choose property">
+                    placeholder="Choose property"
+                    ng-change="vm.formatInputField(vm.rules.indexOf(vm.rules[$index]), vm.rules[$index].condition)">
                         <md-option 
                         ng-repeat="c in vm.getConditionsForFieldType(vm.rules[$index].field)" 
                         ng-value="c.label">
@@ -59,8 +59,7 @@
                     <input
                     ng-model-options="{debounce: 750}" 
                     ng-model="vm.rules[$index].value" 
-                    type="text"
-                    ng-if="vm.rules[$index].condition != 'In' || vm.rules[$index].condition != 'Not in'">                        
+                    type="text">
                 </md-input-container>
 
                 <md-input-container ng-if="vm.rules[$index].inputType=='number'">
@@ -73,12 +72,32 @@
 
                 <md-input-container  ng-if="vm.rules[$index].inputType=='date'">
                     <label>Select date</label>
-                    <input 
+                    <md-datepicker
+                    ng-model-options="{debounce: 750}" 
+                    ng-model="vm.rules[$index].value"></md-datepicker>
+<!--                     <input 
                     ng-model-options="{debounce: 750}" 
                     ng-model="vm.rules[$index].value" 
-                    type="date">
+                    type="date">-->
                 </md-input-container>
-
+<!-- ============================= CHIPS ============================= -->
+                <!-- <md-input-container ng-if="vm.rules[$index].inputType=='text-array'"> -->
+                <span ng-if="vm.rules[$index].inputType=='text-array'">
+                    <label>Array</label>
+                    <md-chips 
+                    ng-model="vm.rules[$index].value" 
+                    readonly="false" 
+                    md-removable="true"
+                    ng-model-options="{debounce: 0}"></md-chips>
+                </span>
+<!--                     <input
+                    ng-model="vm.rules[$index].value" 
+                    type="text"
+                    ng-if="vm.rules[$index].condition != 'In' || vm.rules[$index].condition != 'Not in'">                        
+ -->                <!-- </md-input-container> -->
+<!-- ng-if="vm.rules[$index].condition != 'In' || vm.rules[$index].condition != 'Not in'" -->
+                
+                
             </div>
         </div>
     </div>

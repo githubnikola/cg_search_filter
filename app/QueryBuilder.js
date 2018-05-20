@@ -1,6 +1,6 @@
 'use strict'
 // require('./directives/QueryBuilderDirective.js');
-require('./directives/ConditionBuilderDirective.js');
+require('./directives/ConditionBuilder.directive.js');
 var attrSet             = require('./data/attribute_set_products.json');
 
 var attributes          = [];   // Stores final result of attributes. Passed to directive.

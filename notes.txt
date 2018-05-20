@@ -5,3 +5,25 @@ https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js
 https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js
 https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-sanitize.min.js
 https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0/angular-material.js
+
+
+Current structure:
+
+congraph
+-d- app
+    -d- data
+        -f- attribute_set.json
+        -f- attribute_set_products.json
+    -d- directives
+        -f- ConditionBuilderDirective.tmpl.html
+        -f- ConditionBuilder.directive.js
+        -f- QueryBuilderDirective.html
+    -d- services
+        -f- queryBuilder.constant.js
+        -f- queryBuilder.service.js
+    -f- QueryBuilder.js
+    -f- styles.css
+-d- build
+-d- COPY
+-d- node_modules
+-f- index.html

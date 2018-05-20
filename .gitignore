@@ -24,6 +24,6 @@
 # Ignore everything in the root except the "wp-content" directory.
 /node_modules
 /build
+package-lock.json
 /COPY
 back.txt
-package-lock.json
